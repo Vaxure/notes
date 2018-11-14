@@ -1,14 +1,32 @@
+/*******************属性操作****************** */
+/**
+ * 获取文本内容
+ * innerText和textContent存在兼容问题
+ * 谷歌：两个都支持
+ * firefox: 新版两个都支持， 旧版只支持textContent
+ * IE: IE9以上两个都支持 旧版：只支持innerText
+ */
+function getInnerText(element) {
+    if (typeof element.getInnerText === 'string') {
+        return element.getInnerText;
+    } else {
+        return element.textContent;
+    }
+}
+
+/*******************节点操作****************** */
+/**
+ * 获取id节点的封装
+ */
+function my$(id) {
+    return document.getElementById(id);
+}
 
 /**
- * 公共的操作
+ *  取第一个子元素
+ *  firstChild获取的是节点
+ *  firstElementChild IE9才可用
  */
-
-
-/**
- *  节点的操作
- */
-
-// 获取第一个子元素
 function getFirstElementChild(element) {
     var node,
         nodes = element.childNodes,
@@ -21,7 +39,11 @@ function getFirstElementChild(element) {
     return null;
 }
 
-// 获取最后一个子元素
+/**
+ *  获取最后一个子元素
+ *  lastChild获取的是节点
+ *  lastElementChild IE9才可用
+ */
 function getLastElementChild(element) {
     var node,
         nodes = element.childNodes,
@@ -29,6 +51,38 @@ function getLastElementChild(element) {
     while (node = nodes[i--]) {
         if (node.nodeType === 1) {
             return node;
+        }
+    }
+    return null;
+}
+
+/**
+ *  获取下一个兄弟元素
+ *  nextSibling获取的是节点
+ *  nextElementSibling IE9才可用, IE8为undefined
+ */
+
+function getNextElementSibling(element) {
+    var el = element;
+    while (el = el.nextSibling) {
+        if(el.nodeType === 1) {
+            return el;
+        }
+    }
+    return null;
+}
+
+/**
+ *  获取上一个兄弟元素
+ *  previousSibling获取的是节点
+ *  previousElementSibling IE9才可用, IE8为undefined
+ */
+
+function getPreviousElementSibling(element) {
+    var el = element;
+    while (el = el.previousSibling) {
+        if(el.nodeType === 1) {
+            return el;
         }
     }
     return null;

@@ -1,0 +1,12 @@
+1.父子节点
+    parentNode: 全支持
+    childNodes: 全支持
+    hasChildNodes: 全支持
+2.子元素
+    children: IE6-IE8会返回元素+注释节点，有兼容问题
+3. 第一个和最后一个节点
+    firstChild: 全支持
+    lastChild: 全支持
+4.第一个和最后一个元素
+    firstElementChild: IE9以上
+    lastElementChild: IE9以上

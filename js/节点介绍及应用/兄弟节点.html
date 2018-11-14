@@ -44,8 +44,8 @@
 
 <body>
     <ul id="nav_list">
-        <li><a href="javascript:void(0);">首页</a></li>
-        <li><a href="javascript:void(0);">首页</a></li>
+        <li id="c2"><a href="javascript:void(0);">首页</a></li>
+        <li id="c3"><a href="javascript:void(0);">首页</a></li>
         <li><a href="javascript:void(0);">首页</a></li>
         <li><a href="javascript:void(0);">首页</a></li>
         <div class="clear"></div>
@@ -55,25 +55,10 @@
     <script type="text/javascript" src="../common/common.js"></script>
     <script>
         var navList = my$('nav_list');
-        var nodes = navList.children;
-        for (var i = 0; i < nodes.length; i++) {
-            var li = nodes[i];
-            li.onclick = navLinkClick;
-        }
-
-        function navLinkClick() {
-            for (var i = 0; i < nodes.length - 1; i++) {
-                var li = nodes[i];
-                //li.className = "";
-                //console.log(li.firstElementChild);
-                // li.firstElementChild.className = "";
-                var a = getFirstElementChild(li);
-                a.className = "";
-            }
-            var link = getFirstElementChild(this);
-            // link.parentNode.className = "green";
-            link.className = "green";
-        }
+        var c3 = my$('c3');
+        // console.log(c3.nextSibling);
+        // console.log(c3.nextElementSibling);
+        console.log(getPreviousElementSibling(c3));
     </script>
 </body>
 
