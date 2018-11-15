@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册事件</title>
+</head>
+
+<body>
+
+    <input type="button" value="按钮" id="btn">
+    <div id="box"></div>
+    <script type="text/javascript" src="../common/common.js"></script>
+    <script>
+        var btn = my$('btn');
+        // btn.attachEvent('onclick', function () {
+        //     alert('hello');
+        // });
+        addEventListener(btn, 'click', function () {
+            alert('hello');
+        });
+    </script>
+</body>
+
+</html>

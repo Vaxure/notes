@@ -13,31 +13,35 @@
     <input type="button" value="按钮" id="btn">
     <div id="box"></div>
     <script type="text/javascript" src="../common/common.js"></script>
-    <script type="text/javascript" src="http://c.ibangkf.com/i/c-xxxzzzz123.js"></script>
     <script>
         var btn = my$('btn');
         var box = my$('box');
 
-        // btn.onclick = function () {
-        //     box.innerHTML = "<b>您好</b>";
-        // }
-
         var datas = ['西施', '貂蝉', '方杰', ' 吃饭'];
         btn.onclick = function () {
-            var array = [];
+            // 动态创建ul 
+            var ul = document.createElement('ul');
+            // 遍历数组
             for (var i = 0; i < datas.length; i++) {
                 var data = datas[i];
-                array.push('<li>' + data + '</li>');
+                var li =  document.createElement('li');
+                ul.appendChild(li);
+                // 设置li中显示的内容
+                setInnerText(li, data);
+                // 给li注册事件
+                li.onmouseover = liMouseOver;
+                li.onmouseout = liMouseOut;
             }
-            box.innerHTML = array.join('');
-            /* var html = '<ul>';
-            for (var i = 0; i < datas.length; i++) {
-                var data = datas[i];
-                html += '<li>' + data + '</li>';
-            }
-            html += '<ul/>';
-            console.log(html);
-            box.innerHTML = html; */
+            // 把ul放页面上,并且重新绘制
+            box.appendChild(ul);
+        }
+
+        function liMouseOver() {            
+            this.style.backgroundColor = "red";
+        }
+
+        function liMouseOut() {            
+            this.style.backgroundColor = "";
         }
     </script>
 </body>

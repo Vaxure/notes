@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动态创建元素</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        
+        td,
+        th {
+            border: 1px solid black;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        td {
+            height: 40px;
+            line-height: 40px
+        }
+
+        th {
+            height: 50px;
+            background-color: #eee;
+        }
+
+        #box {
+            width: 400px;
+            margin: 100px auto;
+        } 
+    </style>
+</head>
+
+<body>
+    <!-- <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>学科</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>张三</td>
+                <td>语文</td>
+                <td>99.8</td>
+                <td><a href="javascript:void(0);">删除</a></td>
+            </tr>
+        </tbody>
+    </table> -->
+    <div id="box"></div>
+    <script type="text/javascript" src="../common/common.js"></script>
+    <script>
+        var s = {name: 'zs',subject: '语文',score: 90}
+        var datas = [
+            {name: 'zs',subject: '语文',score: 90},
+            {name: 'ls',subject: '日语',score: 32},
+            {name: 'w5',subject: '物理',score: 41},
+            {name: 'z6',subject: '数学',score: 12}
+        ];
+        
+        var box = my$('box');
+        // 创建table
+        var table = document.createElement('table');
+        box.appendChild(table);
+        // 创建表头
+        var thead = document.createElement('thead');
+        table.appendChild(thead);
+        // 创建数据行
+        var tr = document.createElement('tr');
+        thead.appendChild(tr);
+        // th
+        var headDatas = ['姓名', '科目', '成绩', '操作'];
+        for(var i=0; i<headDatas.length; i++) {
+            var th = document.createElement('th');
+            tr.appendChild(th);
+            setInnerText(th, headDatas[i]);
+        }
+        
+        var tbody = document.createElement('tbody');
+        table.appendChild(tbody);
+        for(var i = 0; i < datas.length; i++) {
+            var data = datas[i];
+            tr = document.createElement('tr');
+            tbody.appendChild(tr);
+            
+            for (var key in data) {
+                var td = document.createElement('td');
+                tr.appendChild(td);
+                setInnerText(td, data[key]);
+            }
+            td = document.createElement('td');
+            tr.appendChild(td);
+            
+            var link = document.createElement('a');
+            td.appendChild(link);
+            link.href = "javascript:void(0)";
+            setInnerText(link, '删除');
+
+            link.onclick = linkDelete;
+        }
+
+        function linkDelete() {
+            var tr = this.parentNode.parentNode;
+            // 获取父元素
+            tbody.removeChild(tr);
+            return false;
+        }
+    </script>
+</body>
+
+</html>

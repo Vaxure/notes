@@ -24,20 +24,10 @@
 
         var datas = ['西施', '貂蝉', '方杰', ' 吃饭'];
         btn.onclick = function () {
-            var array = [];
-            for (var i = 0; i < datas.length; i++) {
-                var data = datas[i];
-                array.push('<li>' + data + '</li>');
-            }
-            box.innerHTML = array.join('');
-            /* var html = '<ul>';
-            for (var i = 0; i < datas.length; i++) {
-                var data = datas[i];
-                html += '<li>' + data + '</li>';
-            }
-            html += '<ul/>';
-            console.log(html);
-            box.innerHTML = html; */
+            var p = document.createElement('p');
+            p.innerText = "hello";
+            p.style.color = 'red';
+            box.appendChild(p);
         }
     </script>
 </body>

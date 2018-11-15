@@ -14,6 +14,17 @@ function getInnerText(element) {
     }
 }
 
+/**
+ * 设置文本的内容
+ */
+function setInnerText(element, content) {
+    if (typeof element.innerText === 'string') {
+        element.innerText = content;
+    } else {
+        element.textContent = content;
+    }
+}
+
 /*******************节点操作****************** */
 /**
  * 获取id节点的封装
@@ -65,7 +76,7 @@ function getLastElementChild(element) {
 function getNextElementSibling(element) {
     var el = element;
     while (el = el.nextSibling) {
-        if(el.nodeType === 1) {
+        if (el.nodeType === 1) {
             return el;
         }
     }
@@ -81,9 +92,27 @@ function getNextElementSibling(element) {
 function getPreviousElementSibling(element) {
     var el = element;
     while (el = el.previousSibling) {
-        if(el.nodeType === 1) {
+        if (el.nodeType === 1) {
             return el;
         }
     }
     return null;
+}
+
+/*******************事件注册****************** */
+/**
+ *  注册事件
+ *  addEventListener IE9以前的不支持
+ *  attachEvent IE6-IE10支持，其他浏览器不支持
+ */
+
+function addEventListener(element, eventName, fn) {
+    // 判断当前浏览器是否支持addEventListener
+    if (element.addEventListener) {
+        element.addEventListener(eventName, fn);
+    } else if(element.attachEvent) {
+        element.attachEvent('on' + eventName, fn);
+    } else {
+        element['on' + eventName] = fn;
+    }
 }

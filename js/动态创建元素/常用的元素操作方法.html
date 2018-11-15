@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动态创建元素</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        
+        td,
+        th {
+            border: 1px solid black;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        td {
+            height: 40px;
+            line-height: 40px
+        }
+
+        th {
+            height: 50px;
+            background-color: #eee;
+        }
+
+        #box {
+            width: 400px;
+            margin: 100px auto;
+        } 
+    </style>
+</head>
+
+<body>
+    
+    <div id="box">
+        <ul id="ul">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        <ul id="ul1">
+        </ul>
+    </div>
+    <button id="btn">按钮</button>
+    <script type="text/javascript" src="../common/common.js"></script>
+    <script>
+        var btn = document.getElementById('btn');
+        var ul = my$('ul');
+        var ul1 = my$('ul1');
+        // var li = document.createElement('li');
+        // li.innerText = 'abc';
+        // //ul.insertBefore(li, ul.children[0]);
+        // ul.replaceChild(li, ul.children[0]);
+        var node = ul.children[0].cloneNode(true);
+        ul1.appendChild(node);
+    </script>
+</body>
+
+</html>
