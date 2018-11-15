@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>学习angularjs版本1</title>
+    <!-- 引入angular -->
+    <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+  </head>
+  <body>
+    <!--
+      1. 学习网站：菜鸟
+      2. 版本： 应该是1
+    -->
+    <!--
+      1.angularjs通过指令来扩展html
+      或者表达式绑定数据到html
+      2.ng-app: angular程序的入口
+        ng-bind 把变量绑定到某个元素的innerHTML
+        ng-model 指令把输入域的值绑定到应用程序变量 name。
+      3.处理与h5的冲突：使用data-ng-init 形式
+      4.AngularJS模块(Module)定义了AngularJS应用
+        AngularJS 控制器（Controller） 用于控制 AngularJS 应用
+        ng-app指令指明了应用, ng-controller 指明了控制器
+    -->
+    <div ng-app="myApp" ng-controller="myCtrl">
+      <p>名字： <input type="text" ng-model="name" /></p>
+      <p>Hello {{ name }}</p>
+
+      <div ng-init="title='学习angular'"></div>
+      <span ng-bind="title"></span> 
+      <hr />
+      {{ firstName }} <br>
+      {{ lastName }}
+    </div>
+    <script>
+      var app = angular.module('myApp', []);
+      app.controller('myCtrl', function($scope) {
+        $scope.firstName = '张';
+        $scope.lastName = '日天';
+      });
+    </script>
+  </body>
+</html>
