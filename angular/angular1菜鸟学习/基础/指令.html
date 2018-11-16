@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>学习angularjs版本1</title>
+    <!-- 引入angular -->
+    <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+  </head>
+  <body>
+    <!--
+      ag通过指令来扩展HTML
+      ag通过内置的指令来为应用添加功能
+      ag可以自定义指令
+
+      ag指令以ng-开头
+      ng-app
+      ng-init
+      ng-model
+
+      重复HTML元素
+      ng-repeat
+
+      自定义指令
+      directive函数来创建
+      app.directive
+      app.directive("runoobDirective", function() {
+          return {
+              restrict : "A",
+              template : "<h1>自定义指令!</h1>"
+          };
+      });
+      使用驼峰法来命名一个指令，在使用的时候需要-来分割标签
+      如： <runoob-directive></runoob-directive>
+      restrict : "A" 用来限制指令的调用形式
+      E 作为元素名使用
+      A 作为属性使用
+      C 作为类名使用
+      M 作为注释使用
+    -->
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <input type="text" ng-model="name">
+        <br>
+        <p>{{ name }}</p>
+        <br>
+        <div ng-init="names=['Jani','Hege','Kai'];"></div>
+        <ul>
+          <li ng-repeat=" x in names">
+            {{ x }}
+          </li>
+        </ul>
+    </div>
+    <script>
+      var app = angular.module('myApp', []);
+      app.controller('myCtrl', function($scope) {
+        $scope.firstName = '张';
+        $scope.lastName = '日天';
+      });
+    </script>
+  </body>
+</html>

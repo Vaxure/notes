@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册事件</title>
+</head>
+
+<body>
+
+    <input type="button" value="按钮" id="btn">
+    <script type="text/javascript" src="../common/common.js"></script>
+    <script>
+        var btn = document.getElementById('btn');
+
+        btn.addEventListener('click', fn);
+
+        function fn() {
+            alert('hello');
+            //移除事件
+            //btn.removeEventListener('click', fn);
+            removeEventListener(btn, 'click', fn)
+        }
+    </script>
+</body>
+
+</html>

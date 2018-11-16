@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>学习angularjs版本1</title>
+    <!-- 引入angular -->
+    <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+  </head>
+  <body>
+    <!--
+      angularjs表达式与javascript表达式的比较
+      类似javascript表达式，angular可以包含字母，操作符，变量
+      与javascript不同，angular可以写在html中
+      与javascript不通，angularjs表达式不支持条件判断，循环及异常
+    -->
+    <div ng-app="myApp" ng-controller="myCtrl">
+      <div ng-init="person={name: 'John'};num1=100;num2=200;"></div>
+      <span>{{ person.name }}</span>
+      <!-- 字母 -->
+      <span>{{ "hello" }}</span>
+      <span>{{ 234 }}</span>
+      <span>{{ num1 > num2 }}</span>
+    </div>
+    <script>
+      var app = angular.module('myApp', []);
+      app.controller('myCtrl', function($scope) {
+        $scope.firstName = '张';
+        $scope.lastName = '日天';
+      });
+    </script>
+  </body>
+</html>

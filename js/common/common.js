@@ -105,7 +105,6 @@ function getPreviousElementSibling(element) {
  *  addEventListener IE9以前的不支持
  *  attachEvent IE6-IE10支持，其他浏览器不支持
  */
-
 function addEventListener(element, eventName, fn) {
     // 判断当前浏览器是否支持addEventListener
     if (element.addEventListener) {
@@ -114,5 +113,21 @@ function addEventListener(element, eventName, fn) {
         element.attachEvent('on' + eventName, fn);
     } else {
         element['on' + eventName] = fn;
+    }
+}
+
+/**
+ *  移除事件
+ *  removeEventListener IE9以前的不支持
+ *  detachEvent IE9-IE10支持，其他浏览器不支持
+ */
+function removeEventListener(element, eventName, fn) {
+    // 判断当前浏览器是否支持removeEventListener
+    if (element.removeEventListener) {
+        element.removeEventListener(eventName, fn);
+    } else if(element.detachEvent) {
+        element.detachEvent('on' + eventName, fn);
+    } else {
+        element['on' + eventName] = none;
     }
 }

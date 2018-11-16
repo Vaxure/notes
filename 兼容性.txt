@@ -19,3 +19,7 @@
 /****************事件********************/
 addEventListener: IE9以后才开始兼容的，
 IE9以前用attachEvent来处理，这个是IE特有的非标准的方法(IE6-IE10)支持
+detachEvent，IE9-IE10的移除事件的方法
+IE中获取事件对象window.event
+
+e.target 在老版本ie中是srcElement
