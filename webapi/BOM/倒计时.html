@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <span id="time">时间</span>
+    
+
+    <script type="text/javascript" src="../common/common.js"></script>
+    <script>
+        var endDate = new Date('2018-12-12 0:0:0');
+        var time = document.getElementById('time');
+        // 先调用一次
+        countdown();
+        setInterval(countdown, 1000);
+        function countdown() {
+            var startDate = new Date();
+            var interval = getInterval(startDate, endDate);
+            time.innerText = interval.day + ":" + interval.hour + ":" + interval.minute + ":" + interval.second;
+        }
+    </script>
+</body>
+
+</html>

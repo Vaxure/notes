@@ -22,4 +22,16 @@ IE9以前用attachEvent来处理，这个是IE特有的非标准的方法(IE6-IE
 detachEvent，IE9-IE10的移除事件的方法
 IE中获取事件对象window.event
 
-e.target 在老版本ie中是srcElement
+e.target 在老版本ie中是srcElement   var target = e.target || e.srcElement;
+
+pageX,pageY IE9以后才开始兼容
+
+取消a标签的默认行为：
+    1. return false;
+    2. e.perentDefault;
+    3. 老IE中 e.returnValue = false;
+
+取消冒泡：
+    e.stopPropagation(); 标准的dom方法
+    e.cancleBubble = false; 老版本IE 非标准化
+    

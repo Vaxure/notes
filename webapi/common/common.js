@@ -109,7 +109,7 @@ function addEventListener(element, eventName, fn) {
     // 判断当前浏览器是否支持addEventListener
     if (element.addEventListener) {
         element.addEventListener(eventName, fn);
-    } else if(element.attachEvent) {
+    } else if (element.attachEvent) {
         element.attachEvent('on' + eventName, fn);
     } else {
         element['on' + eventName] = fn;
@@ -125,9 +125,63 @@ function removeEventListener(element, eventName, fn) {
     // 判断当前浏览器是否支持removeEventListener
     if (element.removeEventListener) {
         element.removeEventListener(eventName, fn);
-    } else if(element.detachEvent) {
+    } else if (element.detachEvent) {
         element.detachEvent('on' + eventName, fn);
     } else {
         element['on' + eventName] = none;
+    }
+}
+
+/*******************页面XY操作****************** */
+/**
+ *  获取页面的xy
+ *  pageX,pageY IE9以前的不支持
+ *  方法: 通过clientX + 页面滚动距离来模拟
+ */
+
+//获取鼠标在页面上的位置
+function getPage(e) {
+    var pageX = e.pageX || e.clientX + getScroll().scrollLeft;
+    var pageY = e.pageY || e.clientY + getScroll().scrollTop;
+    return {
+        pageX: pageX,
+        pageY: pageY
+    }
+}
+
+//获取滚动的距离
+function getScroll() {
+    var scrollLeft = document.body.scrollLeft || document.documentElement.scrollLeft;
+    var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+    return {
+        scrollLeft: screenLeft,
+        scrollTop: scrollTop
+    }
+}
+
+/*******************日期操作****************** */
+/**
+ * 获取两个日期之间的时间差
+ * @param {*} start 
+ * @param {*} end 
+ */
+function getInterval(start, end) {
+    // 两个日期对象相差的毫秒数
+    var interval = end - start;
+    // 求 相差的天数/小时数/分钟数/秒数
+    var day, hour, minute, second;
+    // 求相差的秒数
+    interval /= 1000;
+
+    day = Math.round(interval / 60 / 60 / 24);
+    hour = Math.round(interval / 60 / 60 % 24);
+    minute = Math.round(interval / 60 % 60);
+    second = Math.round(interval % 60);
+
+    return {
+        day: day,
+        hour: hour,
+        minute: minute,
+        second: second
     }
 }
