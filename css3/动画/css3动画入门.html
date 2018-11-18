@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css3动画</title>
+    <style>
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            animation: myfirst 5s;
+            -webkit-animation: myfirst 5s;
+        }
+
+        @keyframes myfirst {
+            from {background-color: red;}
+            to{background-color: yellow;}
+        }
+        /* 兼容写法 */
+        /* chrome safari */
+        @-webkit-keyframes myfirst {
+            from {background-color: red;}
+            to{background-color: yellow;}
+        }
+        /* firefox */
+        @-moz-keyframes myfirst {
+
+        }
+        /* opera */
+        @-o-keyframes myfirst {
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>
