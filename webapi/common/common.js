@@ -185,3 +185,16 @@ function getInterval(start, end) {
         second: second
     }
 }
+
+/*******************获取样式****************** */
+/**
+ * 获取元素的样式
+ * @param {*} el
+ * @param {*} name
+ */
+function getStyle(el, name) {
+    if (el.currentStyle) {
+        return el.currentStyle[name];
+    }
+    return getComputedStyle(el, null)[name];
+}
