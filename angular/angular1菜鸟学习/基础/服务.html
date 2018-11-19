@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>学习angularjs版本1</title>
+  <!-- 引入angular -->
+  <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <!--
+      
+    -->
+  <div ng-app="myApp" ng-controller="myCtrl">
+    {{ myUrl }}
+  </div>
+  <script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope, $location) {
+      $scope.myUrl = $location.absUrl();
+    });
+  </script>
+</body>
+
+</html>
