@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //1. new Object
+      var hero = new Object(); // 空对象
+      hero.blood = 100;
+      hero.name = '刘备';
+      hero.attack = function() {
+        console.log(this.hero);
+      };
+
+      //2. 字面量
+      var hero = {
+        blood: 100,
+        name: '刘备',
+        weapon: '剑',
+        attack: function() {
+          console.log(this.weapon + '攻击');
+        }
+      };
+
+      //3. 工厂模式
+      function createHero(name, blood, weapon) {
+          var o = new Object();
+          o.name = name;
+          o.blood = blood;
+          o.weapon = weapon;
+          o.attack = function () {
+              console.log(this.name + "工具");
+          }
+          return o;
+      }
+
+      var hero = createHero('mark', 1000, 'jian');
+      hero.attack();
+      console.log(typeof hero);
+      
+    </script>
+  </body>
+</html>

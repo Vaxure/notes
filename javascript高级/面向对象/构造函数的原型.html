@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>构造函数创建对象</title>
+</head>
+
+<body>
+    <script>
+        // 解决构造函数中方法的重复问题
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+            //this.sayHi = sayHi;
+        }
+        // 通过原型来添加函数
+        Person.prototype.sayHi = function () {
+            console.log('hi' + this.name);
+        }
+        // 解决方法一下
+        function sayHi() {
+            console.log('hi' + this.name);
+        }
+
+
+        var p1 = new Person('李四', 12);
+        var p2 = new Person('王五', 12);
+        p1.sayHi();
+        p2.sayHi();
+        console.log(p1.sayHi === p2.sayHi);
+
+        
+    </script>
+</body>
+
+</html>
