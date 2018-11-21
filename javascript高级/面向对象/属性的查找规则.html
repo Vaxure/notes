@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>构造函数创建对象</title>
+</head>
+
+<body>
+    <script>
+        // 解决构造函数中方法的重复问题
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        // 通过原型来添加函数
+        Person.prototype.sayHi = function () {
+            console.log('hi' + this.name);
+        }
+        
+        Person.prototype.test = "123";
+        
+        // var p1 = new Person('李四', 12);
+        // var p2 = new Person('王五', 12);
+        
+        // p1.test = "sss";
+        // console.dir(p1);
+        
+        function Student(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        var s1 = new Student('马克', 12);
+        //console.dir(Student.prototype);
+        Student.prototype = {
+            sayHi: function () {
+                console.log('sayHi');
+            },
+            eat: function () {
+                console.log('eat');
+            }
+        };
+
+        s1.eat();
+        console.dir(s1.constructor);
+    </script>
+</body>
+
+</html>
