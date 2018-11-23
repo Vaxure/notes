@@ -22,8 +22,12 @@
 		this.color = options.color || 'green';
 	}
 
+	/*************** public ************ */
 	// render方法 渲染
 	Food.prototype.render = function(map) {
+		
+		// 删除之前创建的食物
+		remove();
 		// 随机设置x和y的值, 随机生成食物对象
 		this.x = Tools.getRandom(0, map.offsetWidth / this.width - 1) * this.width;
 		this.y = Tools.getRandom(0, map.offsetHeight / this.height - 1) * this.height;
@@ -41,6 +45,7 @@
 		div.style.position = position;
 	}
 
+	/*************** private ************ */
 	// 删除食物
 	// 这个方法是不被外界知道的，一个内部用的方法
 	// 用了(function(){})()后这个remove方法外界是无法访问的
@@ -56,7 +61,3 @@
 	// 开启外部对函数作用域的访问
 	window.Food = Food;
 })();
-// *********************测试******************
-var map = document.getElementById('map');
-var food = new Food();
-food.render(map);
