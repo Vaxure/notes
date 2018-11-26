@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="hero">
+        <li>java</li>
+        <li>php</li>
+        <li>python</li>
+        <li>c#</li>
+        <li>javascript</li>
+    </ul>
+    <script>
+        var hero = document.getElementById('hero');
+        var heroList = hero.children;
+        /* for(var i=0; i<heroList.length; i++) {
+            var li = heroList[i];
+            li.index = i;
+            li.onclick = function () {
+                console.log(this.index);
+            }
+        } */
+        for (var i = 0; i < heroList.length; i++) {
+            var li = heroList[i];
+            (function (i) {
+                li.onclick = function () {
+                    console.log(i);
+                }
+            })(i);
+        }
+        // 在一个作用域中可以访问另一个作用域的变量
+        // function fn() {
+        //     var n = 10;
+        //     return function () {
+        //         return n;
+        //     };
+        // }
+        // console.log(fn()());
+        /* ;(function () {
+            function test(){
+
+            }
+            function fn(){
+                test();
+            }
+            fn();
+        })() */
+    </script>
+</body>
+
+</html>

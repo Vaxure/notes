@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="hero">
+        <li>java</li>
+        <li>php</li>
+        <li>python</li>
+        <li>c#</li>
+        <li>javascript</li>
+    </ul>
+    <script>
+        console.log('start');
+        for (var i = 0; i < 3; i++) {
+            (function (i) {
+                setTimeout(function () {
+                    console.log(i);
+                }, 0);
+            })(i);
+        }
+        console.log('end');
+        
+    </script>
+</body>
+
+</html>

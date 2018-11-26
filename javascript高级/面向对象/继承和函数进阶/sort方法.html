@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [2, 3, 4, 1, 5];
+        // arr.sort(function (a, b) {
+        //     return a - b;
+        // });
+        // console.log(arr);
+
+        // 自己实现sort方法
+        Array.prototype.mySort = function (fn) {
+            for (var i = 0; i < this.length; i++) {
+                var isSort = true;
+                for (var j = 0; j < this.length - i - 1; j++) {
+                    if (fn(this[j], this[j + 1]) > 0) {
+                        isSort = false;
+                        var temp = this[j + 1];
+                        this[j + 1] = this[j];
+                        this[j] = temp;
+                    }
+                }
+                if(isSort) {
+                    break;
+                }
+            }
+        }
+
+        arr.mySort(function (a, b) {
+            return b - a;
+        });
+
+        console.dir(arr);
+    </script>
+</body>
+
+</html>

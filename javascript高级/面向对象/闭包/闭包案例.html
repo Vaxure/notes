@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">
+        <button size="14">14px</button>
+        <button size="16">16px</button>
+        <button size="18">18px</button>
+    </div>
+    您好，中华
+    <script>
+        var box = document.getElementById('box');
+        var btnList = box.children;
+        for (var i = 0; i < btnList.length; i++) {
+            var btn = btnList[i];
+            var size = btn.getAttribute('size');
+            btn.onclick = makeFunc(size);
+        }
+
+
+        function makeFunc(size) {
+            return function () {
+                document.body.style.fontSize = size + 'px';
+            };
+        }
+    </script>
+</body>
+
+</html>
