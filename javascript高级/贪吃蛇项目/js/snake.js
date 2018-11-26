@@ -2,7 +2,7 @@
  * 蛇类
  * 
  */
-(function () {
+;(function () {
 
     var position = 'absolute';
     // 记录之前创建的蛇
@@ -58,7 +58,7 @@
     }
 
     // 控制蛇移动的方法
-    Snake.prototype.move = function () {
+    Snake.prototype.move = function (food, map) {
         // 控制蛇身体的移动
         for (var i = this.body.length - 1; i > 0; i--) {
             this.body[i].x = this.body[i - 1].x;
@@ -81,6 +81,21 @@
                 head.y += 1;
                 break;
         }
+        // 判断蛇头是否和食物的坐标重合
+        var headX = head.x * this.width;
+        var headY = head.y * this.height;
+        if(headX == food.x && headY == food.y) {
+        	// 让蛇增加一个蛇节
+        	// 获取蛇的最后一节，添加到蛇的身体里面
+        	var last = this.body[this.body.length - 1];
+        	this.body.push({
+        		x: last.x,
+        		y: last.y,
+        		color: last.color
+        	});
+        	// 重新再地图上生成一个食物
+        	food.render(map);
+        }
     }
 
     /*************** private ************ */
@@ -94,4 +109,4 @@
     }
 
     window.Snake = Snake;
-})();
+})()

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			// bind()  改变函数的this,并且返回新的函数
+			function fn(x, y) {
+				console.log(this);
+				console.log(x + y);
+			}
+			var o = {
+				name: 'zs'
+			};
+
+			/*var f = fn.bind(o, 1, 2);
+			f();*/
+
+			// call 改变函数的this,并且直接调用
+			//fn.call(o, 1, 2);
+			//fn.apply(o, [1, 2]);
+			var f = fn.bind(o, 1, 2);
+			f();
+		</script>
+	</body>
+
+</html>

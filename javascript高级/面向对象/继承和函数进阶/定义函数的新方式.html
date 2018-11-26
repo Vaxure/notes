@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			// 3 new Function()
+			/*var fn = new Function('var name = "张三";console.log(name);');
+			fn();
+			console.dir(fn);*/
+			var fn = new Function('a', 'b', 'console.log(a + b);');
+			fn(1,2);
+			console.dir(fn);
+		</script>
+	</body>
+
+</html>

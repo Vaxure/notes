@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 真正的继承
+			// 继承： 类型与类型之间的关系
+			// 继承的目的，把子类型的公共的成员提取到父类
+			// 学生类型，老师类型
+			
+			
+			// 父类型
+			function Person() {
+				this.name = 'zs';
+				this.age = 12;
+				this.sex = 'm';
+			}
+			// 子类型
+			function Student() {
+				this.score = 100;
+			}
+			
+			Student.prototype = new Person();
+			Student.prototype.constructor = Student;
+			
+			function Teacher() {
+				this.salary = 3000;
+			}
+			
+			var  s1 = new Student();
+			console.log(s1.name   );
+		</script>
+	</body>
+</html>

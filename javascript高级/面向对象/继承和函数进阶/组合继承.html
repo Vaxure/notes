@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 父类型
+			function Person(name, age, sex) {
+				this.name = name;
+				this.age = age;
+				this.sex = sex;
+			}
+			Person.prototype.sayHi = function () {
+				console.log('hello,' + this.name);
+			}
+				
+			// 子类型
+			function Student(name, age, sex, score) {
+				Person.call(this, name, age, sex);
+				this.score = score;
+			}
+			Student.prototype = new Person();
+			Student.prototype.constructor = Student;
+			Student.prototype.exam = function () {
+				console.log('我再考试');
+			}
+			
+			
+			var s1 = new Student('zx', 12, 'm', 100);
+			s1.sayHi();
+		</script>
+	</body>
+</html>

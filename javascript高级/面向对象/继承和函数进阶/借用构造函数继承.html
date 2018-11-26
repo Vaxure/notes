@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 父类型
+			function Person(name, age, sex) {
+				this.name = name;
+				this.age = age;
+				this.sex = sex;
+			}
+			Person.prototype.sayHi = function () {
+				console.log('hello');
+			}
+			
+			
+			// 子类型
+			function Student(name, age, sex, score) {
+				Person.call(this, name, age, sex);
+				this.score = score;
+			}
+			
+			var s1 = new Student('zx', 12, 'm', 100);
+			console.log(s1);
+		</script>
+	</body>
+</html>

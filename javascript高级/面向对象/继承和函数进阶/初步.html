@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			var wjl = {
+				name: '王健林',
+				money: 1000000000,
+				cars: ['奥迪', '宝马', '劳斯莱斯'],
+				houses: ['别墅', '海景房'],
+				play: function() {
+					console.log('打高尔夫');
+				}
+			}
+
+			var wsc = {
+				name: '王思聪'
+			}
+
+			// 函数话
+			// 复制成员给另一个对象  对象的拷贝
+			function extend(parent, child) {
+				for(var key in parent) {
+					// 不给wsc复制同名属性
+					if(child[key]) {
+						continue;
+					}
+					child[key] = parent[key];
+				}
+			}
+			
+			extend(wjl, wsc);
+			console.log(wsc);
+			wsc.play();
+		</script>
+	</body>
+
+</html>
