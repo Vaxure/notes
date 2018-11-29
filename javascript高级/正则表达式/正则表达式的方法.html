@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 正则表达式的方法
+        // test 和 exec
+        /* var str = "张三：200;李四：300;";
+        var reg = /\d+/gi;
+        do {
+            var content = reg.exec(str);
+            if(content) {
+                console.log(content[0]);
+            }
+        } while (content); */
+        /* var str = "张三: 200;李四: 300;王五: 2323;李留: 253;";
+        var reg = /\d+/gi;
+        console.log(str.match(reg)); */
+
+        // 分组提取
+        // var dateStr = '2015-5-10';
+        // var reg = /(\d{4})-(\d{1,2})-(\d{1,2})/;
+        // reg.test(dateStr);
+        // console.log(RegExp.$1);
+        // console.log(RegExp.$2);
+        // console.log(RegExp.$3);
+        
+        // 替换
+        // var str = " 122 234 45 55 ";
+        //console.log(str.replace(/\s/g,''));
+        // console.log(str.split(' ').join(''));
+
+        var str = "123,334，123,9990";
+        console.log(str.replace(/,|，/g,'.'));
+    </script>
+</body>
+
+</html>
