@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>set和map</title>
+</head>
+
+<body>
+    <script>
+        //let set = new Set(['zs', 'ls', 'w5']);
+        //console.log(set);
+        let obj = {
+            a: 1
+        };
+
+        const map = new Map();
+        map.set('name', 'zx');
+        map.set('name', 'zx');
+        map.set('name', 'zx');
+        // map.set('name1', 'zx1');
+        // map.set('name2', 'zx2');
+        // map.set('name3', 'zx3');
+
+        // 遍历
+        map.forEach(function (val, index) {
+            console.log(val);
+            console.log(index);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>class</title>
+</head>
+
+<body>
+    <script>
+        /* function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        Person.prototype = {
+            constructor: Person,
+            print: function () {
+                console.log(this.name);
+            }
+        } */
+        
+        class Person {
+            constructor(name, age){
+                this.name = name;
+                this.age = age;
+            }
+            print() {
+                console.log(this.name);
+            }
+        }
+
+        let p1 = new Person('zxy', 123);
+        p1.print();
+    </script>
+</body>
+
+</html>
