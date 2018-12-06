@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    qq号: <input type="text" id="qq_num"><span></span>
+    <script>
+        var qqNum = document.getElementById('qq_num');
+        // qqNum.onchange = function () {
+        //     console.log(this.value);
+        // } 
+        /* qqNum.onblur = function () {
+            var reg = /^\d{5,12}$/;
+            // 检测输入是否匹配这个模式
+            var span = this.nextElementSibling;
+            if (!reg.test(this.value)) {
+                span.innerText = 'qq号码不正确';
+                span.style.color = 'red';
+            } else {
+                span.innerText = '';
+                span.style.color = '';
+            }
+        } */
+        
+        addCheck('qq_num', /^\d{5,12}$/, 'qq号码不正确');
+        // 表单验证的封装
+        /**
+         */
+        function addCheck(element, reg, tip) {
+            var element = document.getElementById(element);
+            element.onblur = function () {
+                var span = this.nextElementSibling;
+                if (!reg.test(this.value)) {
+                    span.innerText = tip;
+                    span.style.color = 'red';
+                } else {
+                    span.innerText = '';
+                    span.style.color = '';
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
