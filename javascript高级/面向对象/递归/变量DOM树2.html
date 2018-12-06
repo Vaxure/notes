@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <ul>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+        </ul>
+        <div>2</div>
+        <p>3</p>
+        <a href="http://www.baidu.com/">4</a>
+        <b>5</b>
+    </div>
+    <script>
+        function loadTree(parent, callback) {
+            for(var i=0; i<parent.children.length; i++){
+                var child = parent.children[i];
+                if(callback && callback instanceof Function) {
+                    callback(child);
+                }
+                loadTree(child);
+            }
+        }
+        var box = document.getElementById('box');
+        loadTree(box,function (element){
+            element.onclick = function () {
+                console.log(this.innerHTML);
+                if(this.tagName === 'A') {
+                    return false;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
